@@ -7,8 +7,8 @@ let feedback = {};
 
 if (startSet) {
     feedback = startSet;
-    if (feedback.email) { form[0].value = feedback.email; };
-    if (feedback.message) { form[1].value = feedback.message; };
+    feedback.email ? form[0].value = feedback.email : null;
+    feedback.message ? form[1].value = feedback.message : null;
 };
 
 form.addEventListener('input', throttle(() => {
