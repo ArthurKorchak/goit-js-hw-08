@@ -4,9 +4,10 @@ const form = document.querySelector('form');
 const submit = document.querySelector('button');
 let feedback = JSON.parse(localStorage.getItem("feedback-form-state"));
 
-if (feedback.email) {form[0].value = feedback.email;};
-
-if (feedback.message) {form[1].value = feedback.message;};
+if (feedback) {
+    if (feedback.email) { form[0].value = feedback.email; };
+    if (feedback.message) { form[1].value = feedback.message; };
+};
 
 form.addEventListener('input', throttle(() => {
     feedback.email = form[0].value;
