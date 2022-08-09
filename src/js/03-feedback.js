@@ -2,9 +2,10 @@ import throttle from "lodash.throttle";
 
 const form = document.querySelector('form');
 const submit = document.querySelector('button');
-let feedback = JSON.parse(localStorage.getItem("feedback-form-state"));
+let feedback = {};
 
-if (feedback) {
+if (JSON.parse(localStorage.getItem("feedback-form-state"))) {
+    feedback = JSON.parse(localStorage.getItem("feedback-form-state"));
     if (feedback.email) { form[0].value = feedback.email; };
     if (feedback.message) { form[1].value = feedback.message; };
 };
